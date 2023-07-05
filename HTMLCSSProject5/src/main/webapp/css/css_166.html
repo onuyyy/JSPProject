@@ -1,0 +1,111 @@
+<!-- 
+
+	가시속성
+
+	- - - - - - - - - inline
+	
+	-
+	-
+	-
+	-
+	-
+	- block
+	
+	=> 필요시 변경 가능
+		이 css 속성을 (가시성) : display
+		
+		display : none => 화면 출력 x
+				  block => 한 줄에 태그 1개 출력 (자동 줄 바꿈)
+				  inline => 한 줄에 태그 여러 개 출력
+				  			width, height 적용 안 됨
+				  inline-block => 한 줄에 태그 여러 개를 동시에 출력
+				  				  태그에 크기를 지정(width, height)
+				  				  
+	 inline => 태그
+	 	<input>, <textarea>, <select>, <span>, <b>, <strong>
+	 block => 태그	  
+	 	<div>, <ul>, <dl>, <ol>, <table>, <p>, <br>, <h1~6>
+	
+
+
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+input[type=text],label,textarea {
+	display:block;
+	margin-bottom:20px;
+}
+
+div.a {
+	width:100px;
+	height:100px;
+	background-color:green;
+	margin:10px;
+	display:inline-block;
+	/* width,height가 있을 경우엔 inline-block으로 써야 함 */
+}
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<h1>block 속성의 태그 종류</h1>
+<div>Hello Css1</div>
+<div>Hello Css2</div>
+<div>Hello Css3</div>
+<hr>
+<hr>
+<ul>
+	<li>java</li>
+	<li>oracle</li>	
+</ul>
+<ol>
+	<li>java</li>
+	<li>oracle</li>
+</ol>
+<dl>
+	<dt>java</dt>
+	<dd>oracle</dd>
+</dl>
+
+<h1>span 속성의 태그 종류</h1>
+<span>Hello Css1</span>
+<span>Hello Css2</span>
+<span>Hello Css3</span> <br>
+<input type=text sixe=20>
+<input type=text sixe=20>
+<input type=text sixe=20>
+<input type=text sixe=20>
+<input type=text sixe=20>
+<textarea rows="5" cols="30"></textarea>
+<textarea rows="5" cols="30"></textarea>
+<textarea rows="5" cols="30"></textarea>
+
+
+
+
+<h1>inline, inline-block</h1>
+
+<div class="a"></div>
+<div class="a"></div>
+<div class="a"></div>
+<div class="a"></div>
+<div class="a"></div>
+
+
+</body>
+</html>
