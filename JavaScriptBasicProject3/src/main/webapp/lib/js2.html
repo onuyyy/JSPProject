@@ -1,0 +1,56 @@
+<!--
+	
+	Javascript 문서 객체 조작
+	
+	1. 글자 조작
+		innerHTML = html이 적용
+		textContent = 순수한 문자열
+	2. 스타일 조작
+		태그.style.속성=값
+		- 작대기는 => 쓰면 안 되고 대문자로 처리
+		background-color => backgroundColor
+	3. 속성 조작
+		메뉴
+		이벤트	
+	
+	
+	
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	
+	window.onload=function() {
+		let d =document.querySelectorAll("div")
+		for(let dd of d) {
+			dd.style.background='yellow'
+		}
+		
+		document.querySelector('h1').innerHTML='hello'
+		
+		let span = document.querySelectorAll('span')
+		
+		span.forEach(function(s) {
+			s.style.background='blue'
+			s.style.border='2px solid orange'
+		})
+		
+	}
+	
+</script>
+
+</head>
+<body>
+<div>hi</div>
+<h1></h1>
+<div>good</div>
+<span>cooool</span>
+<span>hooo</span>
+<span>ho!</span>
+
+</body>
+</html>

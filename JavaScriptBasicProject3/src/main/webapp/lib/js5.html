@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	window.onload=function() {
+		let sb=document.getElementById('send')
+		sb.onclick=function() {
+			alert('전송')
+		}
+		let cb=document.getElementById('cancle')
+		cb.onclick=function(){
+		alert('취소')
+		}
+		let tp=document.getElementById('temp')
+		tp.onclick=function() {
+		alert('임시')
+		}
+	}
+</script>
+
+</head>
+<body>
+<input type="button" value="전송" id="send">
+ <input type="button" value="취소" id="cancle">
+ <input type="button" value="임시" id="temp">
+</body>
+</html>

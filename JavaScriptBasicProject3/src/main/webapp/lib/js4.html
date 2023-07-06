@@ -1,0 +1,69 @@
+<!--
+	
+	getAttribute(속성이름, 값) => 특정 속성 추출
+	setAttribute(속성이름, 값) => 특정 속성에 값 지정
+	
+	=> documnet.getElementById('a').setAttribute('href','https://naver.com')
+		id가 a인 요소의 href 속성 값을 바꿈
+	
+	데이터 속성 : data-document.getElementById( 'abc' ).setAttribute( 'href', 'https://www.codingfactory.net' );
+		=> 요소에 특정한 데이터를 저장하고 싶은 경우 사용
+		=> hidden 태그로 숨겨두고 저장할 필요가 없음
+	
+-->	
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+.container{
+  margin-top: 50px;
+}
+.row {
+  margin: 0px auto;
+  width: 800px;
+}
+h1{
+    text-align: center
+}
+</style>
+
+<script type="text/javascript">
+	
+	window.onload=function() {
+	
+	let o = document.getElementById('old')
+	let n = document.getElementById('new')
+	
+	o.width=350
+	o.height=250
+	o.style.border='2px solid blue'
+	
+	let i = document.getElementById('old_img')
+	let ii = i.getAttribute('data-img')
+	
+	
+	let nn = document.getElementById('new_img')
+	nn.setAttribute('src',ii)
+		
+	}
+	
+</script>
+</head>
+<body>
+	
+	<div class="container">
+		<h1>getAttribute/setAttribute</h1>
+		<div class="col-sm-6">
+			<div id="old"><img src="cgv1.jpg" style="width:100%" data-img="cgv1.jpg" id="old img"></div>
+		</div>
+		<div class="col-lg-4">
+			<div id="new"><img src="cgv2.jpg" id="new_img"></div>
+		</div>
+	</div>
+
+</body>
+</html>

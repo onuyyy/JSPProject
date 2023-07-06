@@ -1,0 +1,78 @@
+<!-- 
+	
+	javascript 내장 객체
+	String
+		substring()
+		indexOf(0)
+		trim()
+		length()
+		split()
+		slice()
+	
+	Number
+		형변환 Number(문자열), parseInt()
+		
+	Array 		
+		map(콜백함수) : 반복
+		pop() : 마지막 요소 제거
+		push() : 마지막에 값 추가
+		sort() : 정렬
+		slice(start,end) : 특정 위치로 배열 값을 다른 배열에 저장 
+	
+	Math
+		round() : 반올림
+	Date
+		날짜
+		
+	문서 객체 선택
+	document + tag
+	
+	document.querySelector(css 선택자) => 1개 선택
+	-------------------------------------------------
+	document.querySelectorAll(css 선택자)	=> 전체 선택
+	document.getElementBuClassName()
+	-------------------------------------------------	=> return 배열
+														=> 속성 접근할 때 for문 돌려야 함
+	
+	=> jquery에선
+			$('태그명')
+			$('#아이디명')
+			$('클래스명')	
+		
+-->
+	
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	
+	window.onload=function() {
+		
+		let h1 = document.querySelector("h1")
+		
+		h1.style.background='red'
+		
+		document.querySelector('h2').style.background='green'
+		
+		document.querySelector('h3').innerHTML='Javascript'
+		
+	}
+	
+</script>
+
+</head>
+<body>
+
+<h1>Hello</h1>
+<h1>Hello</h1>
+<h1>Hello</h1>
+<h2>Hello</h2>
+<h3>Hello</h3>
+<h4>Hello</h4>
+<h5>Hello</h5>
+
+</body>
+</html>
