@@ -5,6 +5,9 @@
 	<bean id="food" class="com.sist.model.FoodModel"></bean>
 	<bean id="board" class="com.sist.model.FreeBoardModel"></bean>
 	<bean id="goods" class="com.sist.model.GoodsModel"></bean>
+	<bean id="seoul" class="com.sist.model.SeoulModel"></bean>
+	<bean id="seoul" class="com.sist.model.ReplyModel"></bean>
+	<bean id="seoul" class="com.sist.model.FreeBoardReplyModel"></bean>
 </beans>
 
 <!-- controller가 찾을 수 있게 등록한다

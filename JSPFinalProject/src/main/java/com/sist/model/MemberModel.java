@@ -22,12 +22,16 @@ public class MemberModel {
 		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
+	
+	
 	@RequestMapping("member/idcheck.do")
 	public String memberIdCheck(HttpServletRequest request,HttpServletResponse response)
 	{
 		return "../member/idcheck.jsp";
 		//return "../main/main.jsp";
 	}
+	
+	
 	@RequestMapping("member/idcheck_ok.do")
 	public void memberIdCheckOk(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -41,6 +45,8 @@ public class MemberModel {
 			out.println(count);
 		}catch(Exception ex) {}
 	}
+	
+	
 	@RequestMapping("member/postfind.do")
 	public String memberPostFind(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -104,6 +110,8 @@ public class MemberModel {
 		// 이동 
 		return "redirect:../main/main.do";
 	}
+	
+	
 	@RequestMapping("member/login.do")
 	public void memberLogin(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -129,12 +137,15 @@ public class MemberModel {
 			out.println(vo.getMsg());//NOID , NOPWD , OK
 		}catch(Exception ex) {}
 	}
+	
 	/*
 	 *   <%@ page~~%>
 	 *   <%
 	 *       ~~
 	 *   %>
 	 */
+	
+	
 	@RequestMapping("member/logout.do")
 	public String memberLogout(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -142,5 +153,6 @@ public class MemberModel {
 		session.invalidate();
 		
 		return "redirect:../main/main.do";
+		// redirect 메소드 한 번 더 수행하기 위해
 	}
 }
