@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +13,10 @@
   width:600px;
 }
 </style>
-
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-let u=0;
 let i=0; // 전역변수 
+let u=0;
 $(function(){
 	$('#del').click(function(){
 		if(i==0)
@@ -62,26 +61,26 @@ $(function(){
 			}
 		})
 	})
-	
-	// update (댓글 수정)
+	// Update (수정)
 	$('.ups').click(function(){
 		let no=$(this).attr("data-no");
 		$('.ups').text("수정");
 		$('.updates').hide();
-		if(u==0) {
+		if(u===0)
+		{
 			$('#u'+no).show();
 			$(this).text("취소");
 			u=1;
-		} else {
+		}
+		else
+		{
 			$('#u'+no).hide();
 			$(this).text("수정");
 			u=0;
 		}
 	})
-	
 })
 </script>
-
 </head>
 <body>
 <div class="wrapper row3">
@@ -125,74 +124,69 @@ $(function(){
        </td>
      </tr>
    </table>
-   <div style="height:20px"></div>
+   <div style="height: 20px"></div>
    <div class="col-sm-8">
-   <c:if test="${sessionScope.id!=null }">
-	   <table class="table">
-	   		<%-- 댓글 출력 위치 --%>
-	   		<tr>
-	   			<td>
-	   				<c:forEach var="rvo" items="${list }">
-	   					<table class="table">
-	   						<tr>
-	   							<td class="text-left">
-	   								<c:if test="${rvo.group_tab }>0">
-										<c:forEach var="i" begin="1" end="${rvo.group_tab }">
-											&nbsp;&nbsp;
-										</c:forEach>
-										<img src="image/re_icon.png">
-	   								</c:if>
-	   									◑${rvo.name }&nbsp;(${rvo.dbday })
-	   							</td>
-	   							<td class="text-right">
-	   								<span class="btn btn-xs btn-success ups" data-no="${rvo.no }">수정</span>	<!-- 로그인 한 사람만 가능 -->
-	   								<a href="#" class="btn btn-xs btn-info">삭제</a>		<!-- 로그인 한 사람만 가능 -->
-	   								<a href="#" class="btn btn-xs btn-warning">댓글</a>	<!-- 모든 사람들 가능 -->   								
-	   							</td>
-	   						</tr>
-	   						<tr>
-	   							<td colspan=2><pre style="white-spzce: pre-wrap;background-color:white;border:none">${rvo.msg }</pre></td>
-	   						</tr>
-		   						<tr style="display:none" class="updates" id="u${rvo.no }">
-						   			<td colspan=2>
-						   				<form method="post" action="../board/reply_update.do" class="inline">
-						   				<input type=hidden name=bno value="${vo.no }">
-						   				<%-- bno는 다시 detail.do로 이동시켜야 한다 --%>
-						   				<input type=hidden name=no value="${rvo.vo }">
-								            <textarea rows="5" cols="60" name="msg" style="float: left">${rvo.msg }</textarea>
-								            <input type=submit value="댓글수정" 
-								              style="width: 120px;height: 104px;background-color: green;color:white;">
-						   				</form>
-						   			</td>
-						   		</tr>
-	   					</table>
-	   				</c:forEach>
-	   			</td>
-	   		</tr>
+       <table class="table">
+	     <%-- 댓글 출력 위치 --%>
+	     <tr>
+	      <td>
+	        <c:forEach var="rvo" items="${list }">
+	          <table class="table">
+	           <tr>
+	             <td class="text-left">
+	               <c:if test="${rvo.group_tab>0 }">
+	                 <c:forEach var="i" begin="1" end="${rvo.group_tab }">
+	                  &nbsp;&nbsp;
+	                 </c:forEach>
+	                 <img src="image/re_icon.png">
+	               </c:if>
+	               ◑${rvo.name }&nbsp;(${rvo.dbday })
+	             </td>
+	             <td class="text-right">
+	               <span class="btn btn-xs btn-success ups" data-no="${rvo.no }">수정</span>
+	               <a href="#" class="btn btn-xs btn-info">삭제</a>
+	               <a href="#" class="btn btn-xs btn-warning">댓글</a>
+	             </td>
+	           </tr>
+	           <tr>
+	             <td colspan="2"><pre style="white-space: pre-wrap;background-color: white;border: none">${rvo.msg }</pre></td>
+	           </tr>
+	           <tr style="display: none" class="updates" id="u${rvo.no }">
+			      <td colspan="2">
+			        <form method="post" action="../board/reply_update.do" class="inline">
+			         <input type=hidden name=bno value="${vo.no}">
+			         <%-- bno는 다시 detail.do로 이동 --%>
+			         <input type=hidden name=no value="${rvo.no }">
+			         <textarea rows="5" cols="60" name="msg" style="float: left">${rvo.msg }</textarea>
+		             <input type=submit value="댓글수정" 
+		              style="width: 120px;height: 104px;background-color: green;color:white;">
+			        </form>
+			      </td>
+			     </tr>
+	          </table>
+	        </c:forEach>
+	      </td>
+	     </tr>
 	   </table>
-   </c:if>
+	   <c:if test="${sessionScope.id!=null }">
+		   <table class="table">
+		     <%-- 새댓글 입력 --%>
+		     <tr>
+		      <td>
+		        <form method="post" action="../board/reply_insert.do" class="inline">
+		         <input type=hidden name=bno value="${vo.no}">
+		         <textarea rows="5" cols="60" name="msg" style="float: left"></textarea>
+	             <input type=submit value="댓글쓰기" 
+	              style="width: 120px;height: 104px;background-color: green;color:white;">
+		        </form>
+		      </td>
+		     </tr>
+		   </table>
+	   </c:if>
    </div>
+   <div class="col-sm-4">
    
-   <table class="table">
-		<%-- 새댓글 출력 위치 --%>
-
-   </table>
-   <c:if test="${sessionScope.id!=null }">
-	   <table class="table">
-	   		<%-- 새댓글 입력 --%>
-	   		<tr>
-	   			<td>
-	   				<form method="post" action="../board/reply_insert.do" class="inline">
-	   				<input type=hidden name=bno value="${vo.no }">
-			            <textarea rows="5" cols="60" name="msg" style="float: left"></textarea>
-			            <input type=submit value="댓글쓰기" 
-			              style="width: 120px;height: 104px;background-color: green;color:white;">
-	   				</form>
-	   			</td>
-	   		</tr>
-	   </table>
-   </c:if>
-   <div class="col-sm-4"></div>
+   </div>
   </main>
 </div>
 </body>

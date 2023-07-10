@@ -16,7 +16,7 @@ public class ZipcodeVO {
 		return sido;
 	}
 
-	public void setSide(String sido) {
+	public void setSido(String sido) {
 		this.sido = sido;
 	}
 

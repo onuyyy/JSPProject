@@ -113,7 +113,7 @@ public class MemberDAO {
 		   {
 			   ZipcodeVO vo=new ZipcodeVO();
 			   vo.setZipcode(rs.getString(1));
-			   vo.setSide(rs.getString(2));
+			   vo.setSido(rs.getString(2));
 			   vo.setGugun(rs.getString(3));
 			   vo.setDong(rs.getString(4));
 			   vo.setBunji(rs.getString(5));

@@ -12,6 +12,7 @@ public class ReplyModel {
    private String[] url={"","../food/food_detail.do",
 		    "../goods/goods_detail.do",
 		    "../seoul/seoul_detail.do"};
+   
    @RequestMapping("reply/reply_insert.do")
    public String reply_insert(HttpServletRequest request,
 		   HttpServletResponse response)
@@ -32,7 +33,7 @@ public class ReplyModel {
 	   vo.setType(Integer.parseInt(type));
 	   vo.setId(id);
 	   vo.setName(name);
-	   vo.setMsg(msg);
+	   vo.setMsg(msg);  
 	   
 	   // DAO를 통해서 오라클로 전송 
 	   ReplyDAO dao=ReplyDAO.newInstance();
