@@ -1,15 +1,20 @@
 package com.sist.model;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sist.common.CommonModel;
 import com.sist.controller.RequestMapping;
+import com.sist.dao.FoodDAO;
 import com.sist.dao.MemberDAO;
+import com.sist.vo.CategoryVO;
+import com.sist.vo.FoodVO;
 import com.sist.vo.MemberVO;
 import com.sist.vo.ZipcodeVO;
 
@@ -22,16 +27,12 @@ public class MemberModel {
 		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
-	
-	
 	@RequestMapping("member/idcheck.do")
 	public String memberIdCheck(HttpServletRequest request,HttpServletResponse response)
 	{
 		return "../member/idcheck.jsp";
 		//return "../main/main.jsp";
 	}
-	
-	
 	@RequestMapping("member/idcheck_ok.do")
 	public void memberIdCheckOk(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -45,8 +46,6 @@ public class MemberModel {
 			out.println(count);
 		}catch(Exception ex) {}
 	}
-	
-	
 	@RequestMapping("member/postfind.do")
 	public String memberPostFind(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -109,9 +108,8 @@ public class MemberModel {
 		
 		// 이동 
 		return "redirect:../main/main.do";
+		
 	}
-	
-	
 	@RequestMapping("member/login.do")
 	public void memberLogin(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -137,15 +135,12 @@ public class MemberModel {
 			out.println(vo.getMsg());//NOID , NOPWD , OK
 		}catch(Exception ex) {}
 	}
-	
 	/*
 	 *   <%@ page~~%>
 	 *   <%
 	 *       ~~
 	 *   %>
 	 */
-	
-	
 	@RequestMapping("member/logout.do")
 	public String memberLogout(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -153,6 +148,5 @@ public class MemberModel {
 		session.invalidate();
 		
 		return "redirect:../main/main.do";
-		// redirect 메소드 한 번 더 수행하기 위해
 	}
 }

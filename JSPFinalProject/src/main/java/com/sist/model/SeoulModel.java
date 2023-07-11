@@ -44,19 +44,36 @@ public class SeoulModel {
 	   CommonModel.commonRequestData(request);
 	   return "../main/main.jsp";
    }
+   
+   
+   
+   
    @RequestMapping("seoul/seoul_detail.do")
    public String seoul_detail(HttpServletRequest request,
 		   HttpServletResponse response)
    {
+	   
+	   // 03052 서울 종로구 북촌로11길 76
+	   
+	   
 	   String no=request.getParameter("no");
 	   String type=request.getParameter("type");
 	   
 	   SeoulDAO dao=SeoulDAO.newInstance();
 	   SeoulVO vo=dao.seoulDetailData(Integer.parseInt(no),
 			   Integer.parseInt(type));
+	   
 	   request.setAttribute("vo", vo);
 	   request.setAttribute("type", type);
 	   request.setAttribute("main_jsp", "../seoul/seoul_detail.jsp");
+	   
+	   // 지도 출력 주소 보내기
+	   String addr=vo.getAddress();
+	   String addr1=addr.substring(addr.indexOf(" ")+1);
+	   String addr2=addr1.substring(addr1.indexOf(" ")+1); 
+	   String addr3=addr2.substring(0,addr2.indexOf(" "));
+	   request.setAttribute("addr", addr3.trim()+" 맛집");
+	   
 	   return "../main/main.jsp";
    }
 }
